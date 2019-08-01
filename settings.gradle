@@ -1,0 +1,5 @@
+rootProject.name = 'PresentationKotlin'
+include 'aaa'
+rootProject.name = 'presentation-kotlin'
+rootProject.name = 'presentation-kotlin'
+
