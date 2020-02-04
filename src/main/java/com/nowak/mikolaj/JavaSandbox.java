@@ -1,21 +1,14 @@
 package com.nowak.mikolaj;
 
-import com.nowak.mikolaj.step_1_datastructures.Person;
-
-import java.util.Collections;
+import com.nowak.mikolaj.step_1_syntax.Bar;
 
 public class JavaSandbox {
 
-  Person  person = new Person(
-          1,
-          "Jon",
-          "Smith",
-          30,
-          1000.0,
-          Collections.EMPTY_LIST,
-          Collections.EMPTY_MAP
-  );
+    public Bar bar = new Bar(
+            1,
+            "Jon"
+    );
 
-  public static void playWithKotlin() {
-  }
+    public void playWithKotlin() {
+    }
 }
