@@ -123,6 +123,9 @@ class Bar(
             field = value + "?"
             field = "$value?"
         }
+
+    operator fun plusAssign(bar: Any) {
+    }
 }
 
 fun Bar.foo11() =
@@ -143,6 +146,42 @@ inline var Bar?.longIdVar
 inline fun Bar.foo13(block: Bar.() -> Any?): Any =
     block() ?: Unit
 
+val bar: Bar? = Bar(1, "name")
 fun showcase() {
     Bar(1, "name").foo13 { id }
+    val letResult: Int? = bar?.let {
+        it.id
+    }
+    val alsoResult: Bar? = bar?.also {
+        it.id
+    }
+    val firstId = listOf<Bar>()
+        .map { it.id }
+        .first()
+        .also { bar.longIdVar = it?.toLong() ?: 0L }
+
+    val applyResult: Bar? = bar?.apply {
+        id
+    }
+    val barVal: Bar = Bar(2, "name").apply {
+        longIdInner = "4"
+        foo(2)
+    }
+    val barVal2 = Bar(2, "name")
+    barVal2.longIdInner = "4"
+    barVal2.foo(2)
+
+    val withResult: Int? = with(bar) {
+        this?.id
+    }
+
+    val runResult: Int? = bar?.run {
+        id
+    }
+    var list = listOf<Any>() + listOf<Any>() + Any()
+    list += listOf<Unit>()
+}
+
+fun createBar() = Bar(2, "n").apply {
+    longIdInner = "4"
 }

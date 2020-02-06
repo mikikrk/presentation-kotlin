@@ -3,6 +3,7 @@ package com.nowak.mikolaj;
 import com.nowak.mikolaj.step_1_syntax.Bar;
 import com.nowak.mikolaj.step_1_syntax.BarKt;
 import kotlin.Unit;
+import kotlin.collections.CollectionsKt;
 import org.jetbrains.annotations.NotNull;
 
 public class JavaSandbox {
@@ -25,5 +26,10 @@ public class JavaSandbox {
         BarKt.foo13(bar, (bar1 -> {
             return bar1.getId();
         }));
+
+        CollectionsKt.plus(
+                CollectionsKt.listOf(new Object()),
+                CollectionsKt.mutableListOf(new Object())
+        );
     }
 }
