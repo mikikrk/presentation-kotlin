@@ -1,7 +1,11 @@
 package com.nowak.mikolaj;
 
 import com.nowak.mikolaj.step_1_syntax.Bar;
+import com.nowak.mikolaj.step_1_syntax.Bar2;
 import com.nowak.mikolaj.step_1_syntax.BarKt;
+import com.nowak.mikolaj.step_1_syntax.Singleton;
+import com.nowak.mikolaj.step_1_syntax.Utils;
+import javafx.beans.DefaultProperty;
 import kotlin.Unit;
 import kotlin.collections.CollectionsKt;
 import org.jetbrains.annotations.NotNull;
@@ -59,5 +63,13 @@ public class JavaSandbox {
         appendExtends(new ArrayList<Integer>(), 0);
         appendExtends(new ArrayList<Number>(), 0);
         appendSupers(new ArrayList<Number>(), 0);
+
+        Utils singleton = Utils.INSTANCE;
+        String url = Utils.URL;
+
+        Bar.foon();
+        String sth = Bar.sth;
+
+        Bar2 bar2 = new Bar2();
     }
 }

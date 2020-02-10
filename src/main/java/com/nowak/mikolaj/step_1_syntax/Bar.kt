@@ -149,6 +149,18 @@ class Bar(
         val objectHolder: Holder<Super> = holder
 
     }
+
+    const val URL = "http"
+
+    companion object {
+        const val NAME = "Bar"
+
+        @JvmField
+        val sth = ""
+
+        @JvmStatic
+        fun foon() = Unit
+    }
 }
 
 inline fun <reified T> createSuper(number: Int): T? =
@@ -216,3 +228,21 @@ fun showcase() {
 fun createBar() = Bar(2, "n").apply {
     longIdInner = "4"
 }
+
+object Utils {
+    const val URL = "http"
+    const val BAR: Bar = Bar(0, "")
+}
+
+class Bar2 @JvmOverloads constructor(
+    id: Int? = null,
+    override var name: String = "BAR",
+    val age: Int = 0
+) : Super(id), Serializable
+
+fun createBar(id: Int? = 0) =
+    Bar2(
+        id = null,
+        "Default",
+        age = 0
+    )
