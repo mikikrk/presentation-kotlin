@@ -2,10 +2,9 @@ package com.nowak.mikolaj.step_1_syntax
 
 import com.nowak.mikolaj.JavaSandbox
 import java.io.Serializable
-import java.lang.Exception
 import java.lang.IllegalStateException
 
-abstract class Creature(
+abstract class Super(
     open val id: Int?
 ) {
     open lateinit var name: String
@@ -14,7 +13,7 @@ abstract class Creature(
 class Bar(
     id: Int?,
     override var name: String
-) : Creature(id), Serializable {
+) : Super(id), Serializable {
 
     val strId = id.toString()
     var nullId: Int? = 1
@@ -126,7 +125,38 @@ class Bar(
 
     operator fun plusAssign(bar: Any) {
     }
+
+    fun getItem(list: List<out Int>): Int =
+        list[0]
+
+    fun appendItem(list: MutableList<in Int>, item: Int) {
+        list[0] = item
+    }
+
+    fun getInItem(list: List<in Int>): Int =
+        list[0]
+
+    fun appendOutItem(list: MutableList<out Int>, item: Int) {
+        list[0] = item
+    }
+
+    internal interface Holder<out T : Super> {
+        fun get(): T
+        fun add(t: T)
+    }
+
+    internal fun foo(holder: Holder<*>) {
+        val objectHolder: Holder<Super> = holder
+
+    }
 }
+
+inline fun <reified T> createSuper(number: Int): T? =
+    if (number is T) {
+        number
+    } else {
+        T::class.objectInstance
+    }
 
 fun Bar.foo11() =
     strId + name
@@ -178,8 +208,9 @@ fun showcase() {
     val runResult: Int? = bar?.run {
         id
     }
-    var list = listOf<Any>() + listOf<Any>() + Any()
+    var list = listOf<Any?>() + listOf<Any>() + Any()
     list += listOf<Unit>()
+    list += null
 }
 
 fun createBar() = Bar(2, "n").apply {

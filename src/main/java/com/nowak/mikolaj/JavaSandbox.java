@@ -6,7 +6,31 @@ import kotlin.Unit;
 import kotlin.collections.CollectionsKt;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class JavaSandbox {
+
+    void appendExtends(List<? extends Integer> list, int item){
+        list.add(item);
+    }
+    void appendSupers (List<? super Integer> list, int item){
+        list.add(item);
+    }
+    byte getExtends(List<? extends Integer> list, int item){
+        return list.get(item).byteValue();
+    }
+    byte getSupers(List<? super Integer> list, int item){
+        return list.get(item).byteValue();
+    }
+
+    interface Holder<T> {
+        T get();
+    }
+
+    void foo(Holder<String> holder) {
+        Holder<? extends Object> objectHolder = holder;
+    }
 
     @NotNull
     public Bar bar = new Bar(
@@ -31,5 +55,9 @@ public class JavaSandbox {
                 CollectionsKt.listOf(new Object()),
                 CollectionsKt.mutableListOf(new Object())
         );
+
+        appendExtends(new ArrayList<Integer>(), 0);
+        appendExtends(new ArrayList<Number>(), 0);
+        appendSupers(new ArrayList<Number>(), 0);
     }
 }
