@@ -4,16 +4,28 @@ import com.nowak.mikolaj.JavaSandbox
 import java.io.Serializable
 import java.lang.IllegalStateException
 
-abstract class Super(
+open class Super(
     open val id: Int?
-) {
-    open lateinit var name: String
+): SuperInterface {
+    override lateinit var name: String
+    private val upperName: String by lazy { name.toUpperCase() }
+
+    override fun superFoo() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+}
+
+interface SuperInterface {
+    val name: String
+
+    fun superFoo()
 }
 
 class Bar(
     id: Int?,
     override var name: String
-) : Super(id), Serializable {
+) : SuperInterface by Super(id),
+    Serializable {
 
     val strId = id.toString()
     var nullId: Int? = 1
@@ -40,6 +52,7 @@ class Bar(
     }
 
     fun foo(id: Int) {
+        superFoo()
         id = 1
     }
 
