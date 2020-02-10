@@ -5,6 +5,7 @@ import com.nowak.mikolaj.step_1_syntax.Bar2;
 import com.nowak.mikolaj.step_1_syntax.BarKt;
 import com.nowak.mikolaj.step_1_syntax.Singleton;
 import com.nowak.mikolaj.step_1_syntax.Utils;
+import com.nowak.mikolaj.step_2_datastructures.Person;
 import javafx.beans.DefaultProperty;
 import kotlin.Unit;
 import kotlin.collections.CollectionsKt;
@@ -71,5 +72,8 @@ public class JavaSandbox {
         String sth = Bar.sth;
 
         Bar2 bar2 = new Bar2();
+
+        Person person = new Person();
+        int id = person.id;
     }
 }
