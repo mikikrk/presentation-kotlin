@@ -6,7 +6,7 @@ import java.lang.IllegalStateException
 
 open class Super(
     open val id: Int?
-): SuperInterface {
+) : SuperInterface {
     override lateinit var name: String
     private val upperName: String by lazy { name.toUpperCase() }
 
@@ -185,6 +185,12 @@ inline fun <reified T> createSuper(number: Int): T? =
 
 fun Bar.foo11() =
     strId + name
+
+infix fun Any.to(any: Any) =
+    Pair(this, any)
+
+fun Bar.infixUsage() =
+    strId to name
 
 fun Bar?.foo12() =
     this?.strId + this?.name
