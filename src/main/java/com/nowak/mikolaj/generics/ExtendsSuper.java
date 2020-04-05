@@ -27,12 +27,12 @@ public class ExtendsSuper {
     Child getSupers(List<? super Child> list, int item) {
         return list.get(item).childMethod();
     }
-    
+
     void getting() {
         getExtends(new ArrayList<Super>(), 0);
         getExtends(new ArrayList<Child>(), 0);
         getExtends(new ArrayList<ChildOfChild>(), 0);
-        
+
         getSupers(new ArrayList<Super>(), 0);
         getSupers(new ArrayList<Child>(), 0);
         getSupers(new ArrayList<ChildOfChild>(), 0);
