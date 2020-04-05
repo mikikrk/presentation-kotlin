@@ -1,4 +1,4 @@
-import com.nowak.mikolaj.step_2_datastructures.Person
+import com.nowak.mikolaj.datastructures.Person
 
 val person = Person(
     1,
