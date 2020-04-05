@@ -1,4 +1,4 @@
-package com.nowak.mikolaj.step_2_datastructures;
+package com.nowak.mikolaj.datastructures;
 
 import java.util.List;
 import java.util.Map;
