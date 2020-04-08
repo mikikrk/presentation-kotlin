@@ -33,6 +33,7 @@ repositories {
 }
 
 dependencies {
+    implementation ("io.reactivex.rxjava2:rxjava:2.2.16")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.5")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("org.jetbrains.kotlin:kotlin-script-runtime:1.3.41")
