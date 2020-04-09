@@ -1,8 +1,9 @@
-package com.nowak.mikolaj.syntax
+package com.nowak.mikolaj
 
-enum class Types {
-    ONE,
-    TWO
+enum class Types(val namee: String) {
+    ONE(""),
+    TWO(""),
+    THREE("")
 }
 
 
@@ -11,12 +12,16 @@ sealed class SealesNames(
     val name: String
 ) {
 
+    init {
+    }
     class FirstName(
-        firstName: String
+        val firstName: String
     ) : SealesNames(firstName)
 
     class FullName(
         firstName: String,
-        secondName: String
+        val secondName: String
     ) : SealesNames("$firstName $secondName")
+
+    class S: SealesNames("")
 }
